@@ -12,6 +12,7 @@ import { MailModule } from './mail/mail.module';
 import { AutenticacaoModule } from './autenticacao/autenticacao.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { CheckinModule } from './checkin/checkin.module';
+import { CheckoutModule } from './checkout/checkout.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { CheckinModule } from './checkin/checkin.module';
     MailModule,
     AutenticacaoModule,
     CheckinModule,
+    CheckoutModule,
   ],
   controllers: [
     AppController],
