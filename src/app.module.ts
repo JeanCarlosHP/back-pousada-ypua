@@ -11,6 +11,7 @@ import { MapsModule } from './maps/maps.module';
 import { MailModule } from './mail/mail.module';
 import { AutenticacaoModule } from './autenticacao/autenticacao.module';
 import { UsuarioModule } from './usuario/usuario.module';
+import { CheckinModule } from './checkin/checkin.module';
 
 @Module({
   imports: [
@@ -27,7 +28,8 @@ import { UsuarioModule } from './usuario/usuario.module';
     UsuarioModule,
     MapsModule,
     MailModule,
-    AutenticacaoModule
+    AutenticacaoModule,
+    CheckinModule,
   ],
   controllers: [
     AppController],
