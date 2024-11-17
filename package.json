@@ -18,7 +18,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm": "npm run build && npx typeorm -d dist/db/data-source-cli.js"
+    "typeorm": "npm run build && npx typeorm -d dist/db/data-source-cli.js",
+    "createAdmin": "npm run build && node dist/config/init-admin.js"
   },
   "dependencies": {
     "@fastify/static": "^7.0.4",

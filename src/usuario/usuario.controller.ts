@@ -8,6 +8,7 @@ import { UsuarioService } from "./usuario.service";
 import { ApiCreatedResponse, ApiOperation, ApiTags, ApiUnprocessableEntityResponse } from "@nestjs/swagger";
 import { HashearSenhaPipe } from "../recursos/pipes/hashear-senha.pipe";
 import { AutenticacaoGuard } from '../autenticacao/autenticacao.guard';
+import { UserEmail } from "src/decorators/user.decorator";
 
 @UseGuards(AutenticacaoGuard)
 @ApiTags('usuario')
@@ -47,6 +48,13 @@ export class UsuarioController{
             usuario: new ShowUsuarioDTO(usuarioEntity.id, usuarioEntity.nome,usuarioEntity.email,usuarioEntity.rg,usuarioEntity.cpf,usuarioEntity.role),
             message:'usuario criado com sucesso!'
         }
+    }
+
+    // Adicione uma rota para buscar o usuario pelo token de acesso
+    @Get('/me')
+    async getMe(@UserEmail() email: string){
+        const usuario = await this.usuarioService.buscaPorEmail(email);
+        return { user: usuario };
     }
 
     @ApiOperation({summary:'Lista todos os usuarios'})
